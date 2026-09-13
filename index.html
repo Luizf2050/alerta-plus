@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Organize estudos, tarefas e compromissos com o Alerta Plus.">
+  <meta name="theme-color" content="#6B63E8">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Alerta Plus">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="icon.svg"/>
+
+  <title>Alerta Plus</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; background: #f6f7fb; font-family: Arial, sans-serif; color: #13213a; }
+    #app-loading { position: fixed; inset: 0; z-index: 2; display: grid; place-items: center; padding: 24px; background: radial-gradient(ellipse at 20% 15%, #e8e7ff, transparent 60%), #f6f7fb; }
+    .welcome { width: min(780px, 100%); padding: clamp(28px, 6vw, 64px); border: 1px solid #e8e7f4; border-radius: 30px; background: white; box-shadow: 0 24px 70px #35286c0b; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 25px; }
+    .brand-icon { width: 46px; height: 46px; display: grid; place-items: center; color: white; background: #6366e8; border-radius: 15px; }
+    .eyebrow { margin-top: 42px; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #6366e8; }
+    h1 { font-size: clamp(36px, 6vw, 58px); line-height: 1.06; letter-spacing: -2px; margin: 16px 0; }
+    .intro { max-width: 420px; font-size: 16px; line-height: 1.7; color: #66728a; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 40px; }
+    .tags span { background: #f0f0ff; color: #5557c6; border-radius: 20px; padding: 9px 14px; font-size: 12px; }
+    .loading { display: flex; align-items: center; gap: 12px; color: #66728a; font-size: 13px; }
+    .spinner { width: 20px; height: 20px; border: 2px solid #e7e7fa; border-top-color: #6366e8; border-radius: 50%; animation: turn 1s linear infinite; }
+    #reload-app { margin-top: 18px; background: #6366e8; border: 0; border-radius: 12px; padding: 13px 18px; color: white; font-size: 14px; cursor: pointer; }
+    @keyframes turn { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+  </style>
+</head>
+<body>
+  <div id="app-loading">
+    <main class="welcome">
+      <div class="brand"><span class="brand-icon" aria-hidden="true">✦</span> Alerta+</div>
+      <p class="eyebrow">SUA ROTINA, COM MAIS LEVEZA</p>
+      <h1>Seu dia,<br>sob controle.</h1>
+      <p class="intro">Um lugar para organizar suas ideias, lembrar dos compromissos e celebrar cada tarefa concluída.</p>
+      <div class="tags"><span>Estudos</span><span>Tarefas</span><span>Compromissos</span></div>
+      <div class="loading" role="status"><span class="spinner" aria-hidden="true"></span><span id="loading-status">Preparando seu espaço…</span></div>
+      <button id="reload-app" hidden onclick="window.location.reload()">Tentar novamente</button>
+      <noscript>Ative o JavaScript no navegador para abrir sua agenda.</noscript>
+    </main>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      document.getElementById('app-loading')?.remove();
+    });
+    window.setTimeout(function () {
+      var status = document.getElementById('loading-status');
+      if (status) {
+        status.textContent = 'O primeiro acesso pode demorar um pouco. Se não abrir, tente novamente.';
+        document.getElementById('reload-app').hidden = false;
+      }
+    }, 30000);
+  </script>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

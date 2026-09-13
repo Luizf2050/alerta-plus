@@ -1,0 +1,19 @@
+name: alerta_plus
+description: Aplicativo de notificações ALERTA+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  shared_preferences: ^2.5.3
+
+flutter:
+  uses-material-design: true
