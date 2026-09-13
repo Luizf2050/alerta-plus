@@ -1,0 +1,37 @@
+{
+  "background_color": "#ffffff",
+  "description": "Organize estudos, tarefas e compromissos com o Alerta Plus.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Alerta Plus",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Alerta Plus",
+  "start_url": "/",
+  "theme_color": "#6B63E8",
+  "icons": [
+    {
+      "src": "https://luizf2050.github.io/alerta-plus/icon.svg",
+      "type": "image/svg+xml",
+      "isSquare": false,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 0,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    },
+    {
+      "src": "https://luizf2050.github.io/alerta-plus/icons/Icon-192.png",
+      "isSquare": false,
+      "isPng": true,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 0,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    }
+  ]
+}
